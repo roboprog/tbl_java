@@ -1,9 +1,15 @@
+import java.util.*;
+
 /**
  * Demo of bloated code to be refactored with table driven methods.
  */
 public
 class					BadDemo
 	{
+
+	/** list driven output tool */
+	private static final
+	Formatter			printf = new Formatter( System.out);
 
 	/**
 	 * Program entry point.
@@ -17,10 +23,14 @@ class					BadDemo
 		double			qty;
 		double			rate;
 
-		qty = 2500;
-		rate = getRate( qty);
-		System.out.println(
-				"Extended cost for " + qty + " widgets: $" + ( qty * rate) );
+		for ( qty = 5; qty < 100000; qty *= 5)
+
+			{
+			rate = getRate( qty);
+			printf.format( "Extended cost for %.0f widgets: $%.2f\n",
+					qty, ( qty * rate) );
+			}  // print each of several quantities
+
 		}  // __________
 
 	/**

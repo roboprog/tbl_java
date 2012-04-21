@@ -1,3 +1,5 @@
+import java.util.*;
+
 import static java.lang.Double.MAX_VALUE;
 
 /**
@@ -29,6 +31,10 @@ class					GoodDemo
 		new double [] { MAX_VALUE,	0.90 },
 		};
 
+	/** list driven output tool */
+	private static final
+	Formatter			printf = new Formatter( System.out);
+
 	/**
 	 * Program entry point.
 	 */
@@ -41,10 +47,14 @@ class					GoodDemo
 		double			qty;
 		double			rate;
 
-		qty = 2500;
-		rate = getRate( qty);
-		System.out.println(
-				"Extended cost for " + qty + " widgets: $" + ( qty * rate) );
+		for ( qty = 5; qty < 100000; qty *= 5)
+
+			{
+			rate = getRate( qty);
+			printf.format( "Extended cost for %.0f widgets: $%.2f\n",
+					qty, ( qty * rate) );
+			}  // print each of several quantities
+
 		}  // __________
 
 	/**
